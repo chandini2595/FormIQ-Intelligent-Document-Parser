@@ -14,7 +14,8 @@ from openai import OpenAI, OpenAIError
 import boto3
 from botocore.exceptions import ClientError
 import os
-
+from dotenv import load_dotenv
+load_dotenv()
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
