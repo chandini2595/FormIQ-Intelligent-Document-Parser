@@ -1,0 +1,66 @@
+# Model Configuration
+model:
+  name: "microsoft/layoutlmv3-base"
+  device: "cuda"  # or "cpu"
+  confidence_threshold: 0.5
+  max_length: 512
+
+# Training Configuration
+training:
+  batch_size: 8
+  learning_rate: 2e-5
+  num_epochs: 10
+  warmup_steps: 100
+  weight_decay: 0.01
+  gradient_accumulation_steps: 4
+
+# Dataset Configuration
+dataset:
+  train_path: "data/train"
+  val_path: "data/val"
+  test_path: "data/test"
+  max_samples: null  # Set to null for all samples
+  augmentation:
+    enabled: true
+    rotation_range: 10
+    width_shift_range: 0.1
+    height_shift_range: 0.1
+    zoom_range: 0.1
+    fill_mode: "nearest"
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  wandb:
+    enabled: true
+    project: "formiq"
+    entity: null  # Set your W&B username
+  tensorboard:
+    enabled: true
+    log_dir: "logs"
+
+# API Configuration
+api:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 4
+  timeout: 60
+
+# Frontend Configuration
+frontend:
+  host: "localhost"
+  port: 8501
+  debug: false
+
+# MLOps Configuration
+mlops:
+  dvc:
+    remote: "s3://formiq-data"
+    cache_dir: ".dvc/cache"
+  mlflow:
+    tracking_uri: "http://localhost:5000"
+    experiment_name: "formiq"
+  evidently:
+    enabled: true
+    drift_threshold: 0.1
+    window_size: 1000 
