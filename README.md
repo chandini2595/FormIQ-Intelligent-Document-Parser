@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# FormIQ-Intelligent-Document-Parser
-=======
 # FormIQ: Intelligent Document Parser
 
 FormIQ is an advanced document parsing system that leverages foundation models for intelligent information extraction from semi-structured documents like invoices, receipts, and academic forms.
